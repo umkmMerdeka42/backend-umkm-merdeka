@@ -1,10 +1,10 @@
 import express from "express";
 
-import {Login, logOut, Me} from "../controllers/Auth.js"
+import {Login, logOut, session} from "../controllers/Auth.js"
 
 const router = express.Router();
 
-router.get('/me', Me);
+router.get('/session', session);
 router.post('/login', Login);
 router.delete('/logout', logOut);
 

@@ -8,7 +8,7 @@ export const getUsers = async (req, res) => {
     });
     res.status(200).json(response);
   } catch (error) {
-    res.status(500).json({msg: error.message})
+    res.status(500).json({ message: error.message })
   }
 }
 
@@ -22,13 +22,13 @@ export const getUserById = async (req, res) => {
     });
     res.status(200).json(response);
   } catch (error) {
-    res.status(500).json({msg: error.message})
+    res.status(500).json({ message: error.message })
   }
 }
 
 export const createUser = async (req, res) => {
   const { name, email, telephone, university, nim, password, confPassword, role } = req.body;
-  if (password !== confPassword) return res.status(400).json({msg: "Password dan Confirm Password Tidak Cocok"});
+  if (password !== confPassword) return res.status(400).json({ message: "Password dan Confirm Password Tidak Cocok" });
   const hashPassword = await argon2.hash(password);
   try {
     await User.create({
@@ -40,9 +40,9 @@ export const createUser = async (req, res) => {
       password: hashPassword,
       role: role
     });
-    res.status(201).json({msg: "Registrasi Berhasil"});
+    res.status(201).json({ message: "Registrasi Berhasil" });
   } catch (error) {
-    res.status(400).json({msg: error.message})
+    res.status(400).json({ message: error.message })
   }
 }
 
@@ -52,7 +52,7 @@ export const updateUser = async (req, res) => {
       uuid: req.params.id
     }
   });
-  if (!user) return res.status(404).json({msg: "User Tidak Ditemukan"});
+  if (!user) return res.status(404).json({ message: "User Tidak Ditemukan" });
   const { name, email, telephone, university, nim, password, confPassword, role } = req.body;
   let hashPassword;
   if (password === "" || password === null) {
@@ -60,7 +60,7 @@ export const updateUser = async (req, res) => {
   } else {
     hashPassword = await argon2.hash(password);
   }
-  if (password !== confPassword) return res.status(400).json({msg: "Password dan Confirm Password Tidak Cocok"});
+  if (password !== confPassword) return res.status(400).json({ message: "Password dan Confirm Password Tidak Cocok" });
   try {
     await User.update({
       name: name,
@@ -75,9 +75,9 @@ export const updateUser = async (req, res) => {
         id: user.id
       }
     });
-    res.status(200).json({msg: "Berhasil Update User"});
+    res.status(200).json({ message: "Berhasil Update User" });
   } catch (error) {
-    res.status(400).json({msg: error.message})
+    res.status(400).json({ message: error.message})
   }
 }
 
@@ -87,15 +87,15 @@ export const deleteUser = async (req, res) => {
       uuid: req.params.id
     }
   });
-  if (!user) return res.status(404).json({msg: "User Tidak Ditemukan"});
+  if (!user) return res.status(404).json({ message: "User Tidak Ditemukan" });
   try {
     await User.destroy({
       where: {
         id: user.id
       }
     });
-    res.status(200).json({msg: "Berhasil Hapus User"});
+    res.status(200).json({ message: "Berhasil Hapus User" });
   } catch (error) {
-    res.status(400).json({msg: error.message})
+    res.status(400).json({ message: error.message})
   }
 }

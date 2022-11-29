@@ -12,14 +12,14 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-  "name": "Jhon Doe",
-  "email": "jhonDoe38@gmail.com",
+  "name": "Jason Ranti",
+  "email": "jjBoy@gmail.com",
   "telephone": "085695951121",
-  "university": "Universitas Bandar Lampung",
-  "nim": "19411012",
+  "university": "Institut Teknologi Bandung",
+  "nim": "22411011",
   "password": "123",
   "confPassword": "123",
-  "role": "user"
+  "role": "admin"
 }
 
 ###
@@ -40,7 +40,7 @@ Content-Type: application/json
 
 ###
 // delete user
-DELETE http://localhost:5000/users/4bf5b4e2-b5c9-48ec-9e70-4c60538f86cd
+DELETE http://localhost:5000/users/44f66609-20f6-4939-89e5-873370f67a0a
 
 ###
 // Login admin
@@ -58,13 +58,13 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-  "email": "jhonDoe38@gmail.com",
+  "email": "jimmyandTheGank@gmail.com",
   "password": "123"
 }
 
 ###
 // Me
-GET http://localhost:5000/me
+GET http://localhost:5000/session
 
 ###
 // Logout
