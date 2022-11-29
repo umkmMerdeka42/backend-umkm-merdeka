@@ -1,0 +1,71 @@
+###
+//Get All Users
+GET http://localhost:5000/users
+
+###
+//Get Users By Id
+GET http://localhost:5000/users/2e07c985-448d-4e6d-8d1b-0749388b1ba9
+
+###
+//Create User
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+  "name": "Jhon Doe",
+  "email": "jhonDoe38@gmail.com",
+  "telephone": "085695951121",
+  "university": "Universitas Bandar Lampung",
+  "nim": "19411012",
+  "password": "123",
+  "confPassword": "123",
+  "role": "user"
+}
+
+###
+//Update User
+PUT   http://localhost:5000/users/1b6d35d2-a2c0-4c7b-8c26-00cdc3fd5a48
+Content-Type: application/json
+
+{
+  "name": "M Aji Perdana",
+  "email": "ajicooljazz38@gmail.com",
+  "telephone": "085695951121",
+  "university": "Universitas Bandar Lampung",
+  "nim": "19411011",
+  "password": "123",
+  "confPassword": "123",
+  "role": "admin"
+}
+
+###
+// delete user
+DELETE http://localhost:5000/users/4bf5b4e2-b5c9-48ec-9e70-4c60538f86cd
+
+###
+// Login admin
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "email": "ajicooljazz38@gmail.com",
+  "password": "123"
+}
+
+###
+// Login user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "email": "jhonDoe38@gmail.com",
+  "password": "123"
+}
+
+###
+// Me
+GET http://localhost:5000/me
+
+###
+// Logout
+DELETE http://localhost:5000/logout
