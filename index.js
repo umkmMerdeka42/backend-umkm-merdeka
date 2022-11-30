@@ -1,14 +1,14 @@
-import express from "express";
-import cors from "cors";
-import session from "express-session";
-import dotenv from "dotenv";
-import db from "./config/Database.js";
-import SequelizeStore from "connect-session-sequelize";
-import FileUpload from "express-fileupload";
-import UserRoute from "./routes/userRoute.js"
-import ProductRoute from "./routes/ProductRoute.js"
-import AuthRoute from "./routes/AuthRoute.js"
-dotenv.config()
+import express from 'express';
+import cors from 'cors';
+import session from 'express-session';
+import dotenv from 'dotenv';
+import db from './config/Database.js';
+import SequelizeStore from 'connect-session-sequelize';
+import FileUpload from 'express-fileupload';
+import UserRoute from './routes/userRoute.js'
+import ProductRoute from './routes/ProductRoute.js'
+import AuthRoute from './routes/AuthRoute.js'
+dotenv.config();
 
 const app = express();
 
@@ -46,4 +46,4 @@ app.use(AuthRoute);
 
 app.listen(process.env.APP_PORT, () => {
   console.log(`Server Running in port http://localhost:${process.env.APP_PORT}`)
-})
+});

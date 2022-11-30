@@ -1,5 +1,5 @@
-import { Sequelize } from "sequelize";
-import db from "../config/Database.js";
+import { Sequelize } from 'sequelize';
+import db from '../config/Database.js';
 
 const { DataTypes } = Sequelize;
 
@@ -58,7 +58,7 @@ const Users = db.define('users', {
   },
   role:{
     type: DataTypes.STRING,
-    defaultValue: "user",
+    defaultValue: 'user',
     allowNull: false,
     validate: {
       notEmpty: true

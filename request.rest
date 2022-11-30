@@ -4,7 +4,7 @@ GET http://localhost:5000/users
 
 ###
 //Get Users By Id
-GET http://localhost:5000/users/2e07c985-448d-4e6d-8d1b-0749388b1ba9
+GET http://localhost:5000/users/9fb06ab0-7c85-408c-852f-48388ff9e467
 
 ###
 //Create User
@@ -12,35 +12,35 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-  "name": "Jason Ranti",
-  "email": "jjBoy@gmail.com",
+  "name": "Ari Lesmana",
+  "email": "420@gmail.com",
   "telephone": "085695951121",
-  "university": "Institut Teknologi Bandung",
-  "nim": "22411011",
+  "university": "London School",
+  "nim": "19411012",
   "password": "123",
   "confPassword": "123",
-  "role": "admin"
+  "role": "user"
 }
 
 ###
 //Update User
-PUT   http://localhost:5000/users/1b6d35d2-a2c0-4c7b-8c26-00cdc3fd5a48
+PUT   http://localhost:5000/users/9fb06ab0-7c85-408c-852f-48388ff9e467
 Content-Type: application/json
 
 {
-  "name": "M Aji Perdana",
-  "email": "ajicooljazz38@gmail.com",
+  "name": "Ari Lesmana",
+  "email": "420@gmail.com",
   "telephone": "085695951121",
-  "university": "Universitas Bandar Lampung",
-  "nim": "19411011",
+  "university": "London School",
+  "nim": "19411014",
   "password": "123",
   "confPassword": "123",
-  "role": "admin"
+  "role": "user"
 }
 
 ###
 // delete user
-DELETE http://localhost:5000/users/44f66609-20f6-4939-89e5-873370f67a0a
+DELETE http://localhost:5000/users/9fb06ab0-7c85-408c-852f-48388ff9e467
 
 ###
 // Login admin
