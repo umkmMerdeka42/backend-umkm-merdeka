@@ -4,7 +4,6 @@ import session from 'express-session';
 import dotenv from 'dotenv';
 import db from './config/Database.js';
 import SequelizeStore from 'connect-session-sequelize';
-import bodyParser from 'body-parser';
 import FileUpload from 'express-fileupload';
 import UserRoute from './routes/userRoute.js'
 import ProductRoute from './routes/ProductRoute.js'
@@ -38,17 +37,11 @@ app.use(cors({
   origin: 'http://localhost:9000'
 }));
 
-app.use(bodyParser.json({
-  extended: true,
-  limit: '20mb'
-}));
-
-app.use(bodyParser.urlencoded({
-  extended: true,
-  limit: '20mb'
-}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(FileUpload());
+app.use(express.static('static'));
 app.use(UserRoute);
 app.use(ProductRoute);
 app.use(AuthRoute);
