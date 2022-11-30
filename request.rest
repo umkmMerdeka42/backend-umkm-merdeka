@@ -24,14 +24,14 @@ Content-Type: application/json
 
 ###
 //Update User
-PUT   http://localhost:5000/users/9fb06ab0-7c85-408c-852f-48388ff9e467
+PUT   http://localhost:5000/users/f886cdf1-217e-4c2d-8174-1ef839d33f1d
 Content-Type: application/json
 
 {
   "name": "Ari Lesmana",
   "email": "420@gmail.com",
   "telephone": "085695951121",
-  "university": "London School",
+  "university": "Universitas Lampung",
   "nim": "19411014",
   "password": "123",
   "confPassword": "123",
@@ -58,14 +58,56 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-  "email": "jimmyandTheGank@gmail.com",
+  "email": "420@gmail.com",
   "password": "123"
 }
 
 ###
-// Me
+// session
 GET http://localhost:5000/session
 
 ###
 // Logout
 DELETE http://localhost:5000/logout
+
+###
+//Get All Product By User and admin
+GET http://localhost:5000/products
+
+###
+//Get Product By Id
+GET http://localhost:5000/products/b37978c3-59d8-4fc9-89e7-d474c3f37b62
+
+###
+//Get All Product For Guest
+GET http://localhost:5000/productsguest
+
+###
+//Create Product
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+  "productName": "Gitar 420 Original",
+  "price": "2000000",
+  "image": "https://images.tokopedia.net/img/cache/500-square/product-1/2019/10/19/1537548/1537548_cb9bd846-2f77-490b-a808-c810deb7b615_700_700.jpg",
+  "category": "alat musik",
+  "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+}
+
+###
+//Update Product
+PUT  http://localhost:5000/products/b37978c3-59d8-4fc9-89e7-d474c3f37b62
+Content-Type: application/json
+
+{
+  "productName": "Gitar Fourtwnty Original",
+  "price": "2000000",
+  "image": "https://images.tokopedia.net/img/cache/500-square/product-1/2019/10/19/1537548/1537548_cb9bd846-2f77-490b-a808-c810deb7b615_700_700.jpg",
+  "category": "alat musik",
+  "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+}
+
+###
+//Delete Produk
+DELETE http://localhost:5000/products/b37978c3-59d8-4fc9-89e7-d474c3f37b62
