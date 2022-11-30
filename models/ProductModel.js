@@ -5,69 +5,69 @@ import Users from './UserModel.js';
 const { DataTypes } = Sequelize;
 
 const Products = db.define('product', {
-  uuid:{
+  uuid: {
     type: DataTypes.STRING,
     defaultValue: DataTypes.UUIDV4,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
-  productName:{
+  productName: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
       notEmpty: true,
-      len: [3, 100]
-    }
+      len: [3, 100],
+    },
   },
-  price:{
+  price: {
     type: DataTypes.INTEGER,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
-  image:{
+  image: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
-  url:{
+  url: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
-  category:{
+  category: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
-  description:{
+  description: {
     type: DataTypes.TEXT('long'),
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
-  userId:{
+  userId: {
     type: DataTypes.INTEGER,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
 }, {
-  freezeTableName: true
+  freezeTableName: true,
 });
 
 Users.hasMany(Products);
-Products.belongsTo(Users, {foreignKey: 'userId'});
+Products.belongsTo(Users, { foreignKey: 'userId' });
 
 export default Products;

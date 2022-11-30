@@ -1,35 +1,38 @@
-import User from '../models/UserModel.js';
+/* eslint-disable consistent-return */
 import argon2 from 'argon2';
+import User from '../models/UserModel.js';
 import { requestResponse } from '../message.js';
 
 export const getUsers = async (req, res) => {
   try {
     const response = await User.findAll({
-      attributes: ['uuid','name', 'email', 'telephone', 'university', 'nim', 'role']
+      attributes: ['uuid', 'name', 'email', 'telephone', 'university', 'nim', 'role'],
     });
     res.status(200).json(requestResponse.successWithData(response));
   } catch (error) {
-    res.status(500).json(requestResponse.serverError(error.message))
+    res.status(500).json(requestResponse.serverError(error.message));
   }
-}
+};
 
 export const getUserById = async (req, res) => {
   try {
     const response = await User.findOne({
       attributes: ['uuid', 'name', 'email', 'telephone', 'university', 'nim', 'role'],
       where: {
-        uuid: req.params.id
-      }
+        uuid: req.params.id,
+      },
     });
     if (!response) return res.status(404).json(requestResponse.failed('User Tidak Ditemukan'));
     res.status(200).json(requestResponse.successWithData(response));
   } catch (error) {
-    res.status(500).json(requestResponse.serverError(error.message))
+    res.status(500).json(requestResponse.serverError(error.message));
   }
-}
+};
 
 export const createUser = async (req, res) => {
-  const { name, email, telephone, university, nim, password, confPassword, role } = req.body;
+  const {
+    name, email, telephone, university, nim, password, confPassword, role,
+  } = req.body;
   if (password !== confPassword) return res.status(400).json(requestResponse.failed('Password dan Confirm Password Tidak Cocok'));
   const hashPassword = await argon2.hash(password);
   try {
@@ -40,19 +43,19 @@ export const createUser = async (req, res) => {
       university,
       nim,
       password: hashPassword,
-      role
+      role,
     });
     res.status(201).json(requestResponse.success('Registrasi Berhasil'));
   } catch (error) {
-    res.status(400).json(requestResponse.failed(error.message))
+    res.status(400).json(requestResponse.failed(error.message));
   }
-}
+};
 
 export const updateUser = async (req, res) => {
   const user = await User.findOne({
     where: {
-      uuid: req.params.id
-    }
+      uuid: req.params.id,
+    },
   });
 
   if (!user) return res.status(404).json(requestResponse.failed('User Tidak Ditemukan'));
@@ -65,7 +68,7 @@ export const updateUser = async (req, res) => {
     nim,
     password,
     confPassword,
-    role
+    role,
   } = req.body;
 
   let hashPassword;
@@ -86,23 +89,23 @@ export const updateUser = async (req, res) => {
       university,
       nim,
       password: hashPassword,
-      role
-    },{
+      role,
+    }, {
       where: {
-        id: user.id
-      }
+        id: user.id,
+      },
     });
     res.status(200).json(requestResponse.success('Berhasil Update User'));
   } catch (error) {
-    res.status(400).json(requestResponse.failed(error.message))
+    res.status(400).json(requestResponse.failed(error.message));
   }
-}
+};
 
 export const deleteUser = async (req, res) => {
   const user = await User.findOne({
     where: {
-      uuid: req.params.id
-    }
+      uuid: req.params.id,
+    },
   });
 
   if (!user) return res.status(404).json(requestResponse.failed('User Tidak Ditemukan'));
@@ -110,11 +113,11 @@ export const deleteUser = async (req, res) => {
   try {
     await User.destroy({
       where: {
-        id: user.id
-      }
+        id: user.id,
+      },
     });
     res.status(200).json(requestResponse.success('Berhasil delete user'));
   } catch (error) {
-    res.status(400).json(requestResponse.failed(error.message))
+    res.status(400).json(requestResponse.failed(error.message));
   }
-}
+};

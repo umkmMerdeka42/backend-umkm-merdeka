@@ -4,7 +4,7 @@ import {
   getUserById,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
 } from '../controllers/Users.js';
 import { verfyUser, adminOnly } from '../middleware/AuthUser.js';
 
