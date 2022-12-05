@@ -165,7 +165,7 @@ export const updateProduct = async (req, res) => {
     let fileName = '';
 
     if (req.files === null) {
-      fileName = Product.image;
+      fileName = product.image;
     } else {
       const file = req.files.image;
       const fileSize = file.data.length;
