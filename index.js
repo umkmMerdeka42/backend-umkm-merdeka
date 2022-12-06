@@ -34,7 +34,7 @@ app.use(session({
   store,
   cookie: {
     secure: true,
-    sameSite: 'Strict'
+    SameSite: 'Strict'
   },
 }));
 
