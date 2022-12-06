@@ -12,6 +12,8 @@ import AuthRoute from './routes/AuthRoute.js';
 
 dotenv.config();
 
+const PORT = process.env.PORT || 5000;
+
 const app = express();
 
 const sessionStore = SequelizeStore(session.Store);
@@ -51,6 +53,6 @@ app.use(AuthRoute);
 
 // store.sync();
 
-app.listen(process.env.APP_PORT, () => {
-  console.log(`Server Running in port http://localhost:${process.env.APP_PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server Running in port http://localhost:${PORT}`);
 });
