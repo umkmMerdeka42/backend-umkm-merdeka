@@ -53,6 +53,10 @@ app.use(AuthRoute);
 
 // store.sync();
 
+app.get('/', (req, res) => {
+  res.send('<h1>Halo, Selamat datang di UMKM Merdeka API</h1>');
+});
+
 app.listen(PORT, () => {
   console.log(`Server Running in port http://localhost:${PORT}`);
 });
