@@ -24,9 +24,10 @@ const store = new sessionStore({
 });
 
 // (async () => {
-//   await db.sync();
-// })();
-
+//     await db.sync();
+//   })();
+// store.sync();
+  
 app.use(session({
   secret: process.env.SESS_SECRET,
   resave: false,
@@ -38,10 +39,7 @@ app.use(session({
   },
 }));
 
-app.use(cors({
-  credentials: true,
-  origin: ['http://localhost:9000', 'http://localhost:3000', 'http://127.0.0.1:8080'],
-}));
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -52,7 +50,6 @@ app.use(UserRoute);
 app.use(ProductRoute);
 app.use(AuthRoute);
 
-// store.sync();
 
 app.get('/', (req, res) => {
   res.send('<h1>Halo, Selamat datang di UMKM Merdeka API</h1>');
