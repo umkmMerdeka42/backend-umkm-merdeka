@@ -33,9 +33,9 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   store,
-  cookie: {
-    secure: true
-  },
+  // cookie: {
+  //   secure: false
+  // },
 }));
 
 app.use(cors({
