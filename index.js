@@ -34,7 +34,7 @@ app.use(session({
   saveUninitialized: true,
   store,
   cookie: {
-    secure: true
+    secure: false
   },
 }));
 
