@@ -42,7 +42,7 @@ export const login = async (req, res) => {
 
 export const session = async (req, res) => {
   if (!req.session.userId) {
-    return res.status(401).json(requestResponse.failed('Mohon Login Ke Akun Anda!'));
+    return res.status(401).json(requestResponse.failed('Mohon Login Ke Akun Anda dulu'));
   }
 
   const user = await User.findOne({
@@ -52,7 +52,7 @@ export const session = async (req, res) => {
     },
   });
 
-  if (!user) return res.status(404).json(requestResponse.failed('User Tidak Ditemukan!'));
+  if (!user) return res.status(404).json(requestResponse.failed('User Tidak Ditemukan, Ayo Daftar'));
   res.status(200).json(requestResponse.successWithData(user));
 };
 

@@ -4,14 +4,14 @@ import { requestResponse } from '../message.js';
 
 export const verfyUser = async (req, res, next) => {
   if (!req.session.userId) {
-    return res.status(401).json(requestResponse.failed('Mohon login ke akun anda!'));
+    return res.status(401).json(requestResponse.failed('Mohon Login Ke Akun Anda dulu!'));
   }
   const user = await User.findOne({
     where: {
       uuid: req.session.userId,
     },
   });
-  if (!user) return res.status(404).json(requestResponse.failed('User Tidak Ditemukan'));
+  if (!user) return res.status(404).json(requestResponse.failed('User Tidak Ditemukan, Ayo Daftar!'));
   req.userId = user.id;
   req.role = user.role;
   next();
