@@ -42,7 +42,7 @@ export const login = async (req, res) => {
 
 export const session = async (req, res) => {
   if (!req.session.userId) {
-    return res.status(401).json(requestResponse.failed('Mohon Login Ke Akun Anda dulu'));
+    return res.status(401).json(requestResponse.failed('Mohon Login Ke Akun Anda dulu!'));
   }
 
   const user = await User.findOne({
