@@ -29,7 +29,7 @@ const store = new sessionStore({
 // store.sync();
   
 app.use(session({
-  secret: process.env.SESS_SECRET,
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   proxy: true,
