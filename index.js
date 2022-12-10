@@ -48,7 +48,8 @@ app.use(cors({
     'http://localhost:9000',
     'http://localhost:3000',
     'http://127.0.0.1:8080',
-    'https://umkm-merdeka-dashboard-apps.vercel.app',
+    'https://umkm-merdeka-dashboard.netlify.app',
+    'https://umkm-merdeka.netlify.app'
   ],
 }));
 
