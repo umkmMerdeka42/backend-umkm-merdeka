@@ -31,13 +31,13 @@ const store = new sessionStore({
 app.use(session({
   secret: process.env.SESS_SECRET,
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   proxy: true,
   store,
   cookie: {
     secure: true,
     httpOnly: false,
-    sameSite: true,
+    sameSite: 'none',
     maxAge: 1000 * 60 * 60 * 24
   },
 }));
