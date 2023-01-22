@@ -117,7 +117,7 @@ export const getProductByIdForGuest = async (req, res) => {
 };
 
 export const createProduct = async (req, res) => {
-  if (req.files === null) return res.status(400).json(requestResponse.failed('Tidak ada file yang di update'));
+  if (req.files === null) return res.status(400).json(requestResponse.failed('Tidak ada file yang di tambahkan'));
 
   const file = req.files.image;
   const fileSize = file.data.length;
