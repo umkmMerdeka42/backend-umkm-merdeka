@@ -128,7 +128,7 @@ export const createProduct = async (req, res) => {
 
   if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json(requestResponse.failed('Invalid Image'));
 
-  if (fileSize > 5000000) return res.status(422).json(requestResponse.failed('Harus lebih kecil dari 5 mb'));
+  if (fileSize > 5000000) return res.status(422).json(requestResponse.failed('Gambar harus lebih kecil dari 5 mb'));
 
   file.mv(`./static/images/${fileName}`, async (err) => {
     if (err) return res.status(500).json(requestResponse.failed(err.message));
@@ -175,7 +175,7 @@ export const updateProduct = async (req, res) => {
 
       if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json(requestResponse.failed('Invalid Image'));
 
-      if (fileSize > 5000000) return res.status(422).json(requestResponse.failed('Harus lebih kecil dari 5 mb'));
+      if (fileSize > 5000000) return res.status(422).json(requestResponse.failed('Gambar harus lebih kecil dari 5 mb'));
 
       const filePath = `./static/images/${product.image}`;
       fs.unlinkSync(filePath);
