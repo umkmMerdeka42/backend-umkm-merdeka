@@ -23,10 +23,10 @@ const store = new sessionStore({
   db,
 });
 
-(async () => {
-    await db.sync();
-  })();
-store.sync();
+// (async () => {
+//     await db.sync();
+//   })();
+// store.sync();
   
 app.use(session({
   secret: process.env.SESS_SECRET,
